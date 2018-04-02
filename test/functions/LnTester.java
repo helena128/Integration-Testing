@@ -18,7 +18,7 @@ public class LnTester {
 
     @Test
     public void testCases() {
-        assertEquals(log(2), basicLogarithm.ln(2.0), 0.2);
+        assertEquals(log(2), basicLogarithm.ln(2.0), 0.01);
         assertEquals(log(Double.POSITIVE_INFINITY), basicLogarithm.ln(Double.POSITIVE_INFINITY), 0.2);
         try {
             assertEquals(log(Double.NEGATIVE_INFINITY), basicLogarithm.ln(Double.NEGATIVE_INFINITY), 0.2);

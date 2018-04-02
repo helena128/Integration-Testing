@@ -13,7 +13,7 @@ public class BasicLogarithm {
     }
 
     public Double ln(Double x) {
-        double sum = 0.0, tmp = 0.0;
+        double sum = 0.0, tmp = 10.0;
 
         if (x < 0) {
             throw new IllegalArgumentException("X must be >= 0!");
@@ -30,7 +30,7 @@ public class BasicLogarithm {
         if (x <= 2) {
             x -= 1;
 
-            for ( int i = 1; tmp < eps && i < MAX_ITERATIONS; i += 2 ) {
+            for ( int i = 1; tmp > eps && i < MAX_ITERATIONS; i += 2 ) {
                 tmp = (Math.pow(x, i)/(double) i - Math.pow(x, i + 1)/(double)(i + 1));
                 sum += tmp;
             }
