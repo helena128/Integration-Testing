@@ -2,11 +2,10 @@ package functions;
 
 import org.junit.Before;
 import org.junit.Test;
-import trigeometry.TrigeometricBase;
+import main.logarithm.trigeometry.TrigeometricBase;
 
 import static org.junit.Assert.assertEquals;
 import static java.lang.Math.cos;
-import static java.lang.Math.PI;
 import static java.lang.Math.toRadians;
 
 public class CosTest {
