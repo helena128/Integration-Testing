@@ -2,7 +2,7 @@ package functions;
 
 import org.junit.Before;
 import org.junit.Test;
-import main.logarithm.trigeometry.TrigeometricBase;
+import main.trigeometry.TrigeometricBase;
 
 import static org.junit.Assert.assertEquals;
 import static java.lang.Math.cos;
