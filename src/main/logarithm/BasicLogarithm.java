@@ -1,6 +1,6 @@
-package logarithm;
+package main.logarithm;
 
-public class BasicLogarithm {
+public class BasicLogarithm implements IBasicLog {
     private static final int MAX_ITERATIONS = 5000;
     private Double eps;
 
@@ -16,7 +16,7 @@ public class BasicLogarithm {
         double sum = 0.0, tmp = 10.0;
 
         if (x < 0) {
-            throw new IllegalArgumentException("X must be >= 0!");
+            return Double.NaN;
         }
 
         if (x == 0) {
@@ -43,6 +43,20 @@ public class BasicLogarithm {
             }
         }
         return sum;
-
     }
+
+    /**
+     *
+     * @param x in radians
+     * @return
+     */
+    private Double handleStub(Double x) {
+        if (x < 0) return Double.NaN;
+        if (x == 0) return Double.NEGATIVE_INFINITY; // 0
+        if (x < 1) return 50.6619 * x - 7.1636; // 0 to 1
+        if (x == 1) return 0.0; // 1
+        if (Math.abs(x - Math.E) < eps) return 1.0; // e
+        return 0.005 * x + 2.8089; // 1 to inf
+    }
+
 }

@@ -1,17 +1,22 @@
-package logarithm;
+package main.logarithm;
 
 public class LogarithmicFunction {
     private BasicLogarithm basicLogarithm;
+    private boolean isStub;
 
     public LogarithmicFunction() {
         basicLogarithm = new BasicLogarithm();
+        isStub = false;
     }
 
     public Double calculate(Double x, Double base) {
-        return basicLogarithm.ln(x) / basicLogarithm.ln(base);
+        double res = basicLogarithm.ln(x) / basicLogarithm.ln(base);
+        return res;
     }
 
     public Double calculate(Double x) {
-        return basicLogarithm.ln(x);
+        double res = basicLogarithm.ln(x);
+        return res;
     }
+
 }
