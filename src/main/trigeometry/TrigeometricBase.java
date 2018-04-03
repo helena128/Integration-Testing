@@ -1,4 +1,4 @@
-package main.logarithm.trigeometry;
+package main.trigeometry;
 
 import static java.lang.Math.pow;
 

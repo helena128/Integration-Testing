@@ -12,6 +12,7 @@ public class BasicLogarithm implements IBasicLog {
         this.eps = eps;
     }
 
+    @Override
     public Double ln(Double x) {
         double sum = 0.0, tmp = 10.0;
 
@@ -44,19 +45,4 @@ public class BasicLogarithm implements IBasicLog {
         }
         return sum;
     }
-
-    /**
-     *
-     * @param x in radians
-     * @return
-     */
-    private Double handleStub(Double x) {
-        if (x < 0) return Double.NaN;
-        if (x == 0) return Double.NEGATIVE_INFINITY; // 0
-        if (x < 1) return 50.6619 * x - 7.1636; // 0 to 1
-        if (x == 1) return 0.0; // 1
-        if (Math.abs(x - Math.E) < eps) return 1.0; // e
-        return 0.005 * x + 2.8089; // 1 to inf
-    }
-
 }
