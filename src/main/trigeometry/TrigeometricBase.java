@@ -1,12 +1,14 @@
 package main.trigeometry;
 
+import main.logarithm.IBasicLog;
+
 import static java.lang.Math.pow;
 
-public class TrigeometricBase {
+public class TrigeometricBase implements IBasicTrig {
     private static final Double EPS = 10e-5;
     private static final int MAX_ITERATIONS = 10000;
 
-
+    @Override
     public Double cos(Double x) {
         Double sum = 0.0, tmp = 10.0;
 
