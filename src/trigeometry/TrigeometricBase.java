@@ -1,12 +1,10 @@
 package trigeometry;
 
-import java.math.BigDecimal;
-
 import static java.lang.Math.pow;
 
 public class TrigeometricBase {
     private static final Double EPS = 10e-5;
-    private static final int MAX_ITERATIONS = 5000;
+    private static final int MAX_ITERATIONS = 10000;
 
 
     public Double cos(Double x) {
@@ -20,8 +18,8 @@ public class TrigeometricBase {
         return sum;
     }
 
-    private Double factorial(int x) {
-        double res = 1.0;
+    private int factorial(int x) {
+        int res = 1;
 
         if (x <= 0) return res;
 
