@@ -1,5 +1,6 @@
-package main;
+package utils;
 
+import main.IExpression;
 import main.logarithm.LogExpression;
 import main.trigeometry.TrigeometricExpression;
 
