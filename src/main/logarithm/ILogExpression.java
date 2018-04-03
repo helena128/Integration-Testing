@@ -1,5 +1,7 @@
 package main.logarithm;
 
-public interface ILogExpression {
+import main.IExpression;
+
+public interface ILogExpression extends IExpression {
     Double calculate(Double x);
 }
