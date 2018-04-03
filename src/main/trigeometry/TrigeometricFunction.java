@@ -1,15 +1,23 @@
 package main.trigeometry;
 
-import static java.lang.Math.abs;
 import static java.lang.Math.pow;
 
-public class TrigeometricFunction {
+public class TrigeometricFunction implements ITrigFunction {
     private static final double EPS = 1e-6;
 
-    private TrigeometricBase base;
+    private IBasicTrig base;
 
     public TrigeometricFunction() {
         this.base = new TrigeometricBase();
+    }
+
+    public TrigeometricFunction(IBasicTrig base) {
+        this.base = base;
+    }
+
+    @Override
+    public Double cos(Double x) {
+        return base.cos(x);
     }
 
     /**
@@ -17,6 +25,7 @@ public class TrigeometricFunction {
      * @param x - argument, in radians
      * @return - result of the tg method
      */
+    @Override
     public Double tg(Double x) {
         double res = 1 / pow(base.cos(x), 2) - 1;
         return res < EPS ? Double.NaN : res;
@@ -27,6 +36,7 @@ public class TrigeometricFunction {
      * @param x
      * @return
      */
+    @Override
     public Double sec(Double x) {
         return (base.cos(x) < EPS) ? Double.NaN : (1 / base.cos(x));
     }
