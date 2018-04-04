@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class Application {
 
+    private final static String FILE_EXT = "_log.csv";
     private static Scanner sc;
 
     private IBasicLog baseLog;
@@ -19,13 +20,12 @@ public class Application {
     private SystemSolver systemSolver;
 
     public static void main(String... args) {
-        // do smth
         sc = new Scanner(System.in);
         Application app = new Application();
         app.exec();
     }
 
-    public Application() {
+    private Application() {
         baseLog = new BasicLogarithm();
         logFunction = new LogarithmicFunction();
         logExpr = new LogExpression();
@@ -91,10 +91,12 @@ public class Application {
             } else {
                 // calculate function and write its results to csv file
                 double min = borders[0], max = borders[1], step = borders[2];
+                Double y;
                 for (double x = min; x < max; x += step) {
-                    Double y = calculate(fn, x);
+                    y = calculate(fn, x); // TODO: fails here
                     if (y != null) {
-                        logger.log(fn.toString(), x, y);
+                        //logger.log(fn.toString() + FILE_EXT, x, y);
+                        System.out.println("x = " + x + "\ty = " + y);
                     }
                 }
             }
