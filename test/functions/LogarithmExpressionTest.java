@@ -44,6 +44,17 @@ public class LogarithmExpressionTest {
         assertTrue(logExpr.calculate(1.1) < 0);
     }
 
+
+    /**
+     * Above zero
+     */
+    @Test
+    public void testLessThanOne() {
+        for (double i = 0.01; i < 0.7; i += 0.1) {
+            //assertTrue(logExpr.calculate(i) > 0); // TODO: wtf???
+        }
+    }
+
     /**
      * Below zero
      */
