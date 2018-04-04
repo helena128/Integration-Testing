@@ -1,6 +1,7 @@
 package main.trigeometry;
 
 import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
 
 public class TrigeometricFunction implements ITrigFunction {
     private static final double EPS = 1e-6;
@@ -27,8 +28,9 @@ public class TrigeometricFunction implements ITrigFunction {
      */
     @Override
     public Double tg(Double x) {
-        double res = 1 / pow(base.cos(x), 2) - 1;
-        return res < EPS ? Double.NaN : res;
+        Double res = 1 / pow(base.cos(x), 2) - 1;
+        //if (res.isNaN() || res.isInfinite()) return 0.0;
+        return res < EPS ? Double.NaN : sqrt(res);
     }
 
     /**
