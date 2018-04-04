@@ -2,7 +2,6 @@ package stub;
 
 import main.trigeometry.ITrigFunction;
 
-import static java.lang.Math.cos;
 import static java.lang.Math.pow;
 
 public class TrigeometricFunctionStub implements ITrigFunction {
@@ -10,7 +9,7 @@ public class TrigeometricFunctionStub implements ITrigFunction {
 
     @Override
     public Double cos(Double x) {
-        return cos(x);
+        return Math.cos(x);
     }
 
     /**
