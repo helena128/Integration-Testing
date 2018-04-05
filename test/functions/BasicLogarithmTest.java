@@ -8,9 +8,10 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static java.lang.Math.log;
+import static org.junit.Assert.assertTrue;
+import static utils.Constants.EPS_TESTS_BASIC_LOG;
 
 public class BasicLogarithmTest {
-    private static final Double EPS = 1e-5;
     private IBasicLog base;
 
     @Before
@@ -18,33 +19,41 @@ public class BasicLogarithmTest {
         base = new BasicLogarithm();
     }
 
+    // should not exist, returns NaN
     @Test
-    public void testLessThanZero() {
-        assertEquals(log(-2.0), base.ln(-2.0), EPS);
-        assertEquals(log(-3.0), base.ln(-3.0), EPS);
+    public void testXLessThanZero() {
+        assertEquals(log(-2.0), base.ln(-2.0), EPS_TESTS_BASIC_LOG);
+        assertEquals(log(-3.0), base.ln(-3.0), EPS_TESTS_BASIC_LOG);
     }
 
     @Test
     public void testNearZero() {
-        assertEquals(log(-0.1), base.ln(-0.1), EPS);
-        assertEquals(log(0), base.ln(0.0), EPS);
-        //assertEquals(log(0.001), base.ln(0.001), EPS); // TODO: WTF
+        assertEquals(log(-0.1), base.ln(-0.1), EPS_TESTS_BASIC_LOG);
+        assertEquals(log(0), base.ln(0.0), EPS_TESTS_BASIC_LOG);
+        assertEquals(log(0.6), base.ln(0.6), EPS_TESTS_BASIC_LOG * 2);
     }
 
     @Test
     public void testXIsOne() {
-        assertEquals(log(1), base.ln(1.0), EPS); // y = 0
+        assertTrue(base.ln(1.001) > 0);
+        assertEquals(0, base.ln(1.0), EPS_TESTS_BASIC_LOG);
+        assertTrue(base.ln(0.999) < 0);
     }
 
-    @Ignore
+
+    //@Ignore // TODO: useless test ???
     @Test
     public void testAtExp() {
-        assertEquals(log(Math.E), base.ln(Math.E), EPS); // TODO: WTF
+        assertEquals(log(Math.E), base.ln(Math.E), EPS_TESTS_BASIC_LOG); // x = exp
+        assertTrue(base.ln(Math.E - 0.001) < 1); // x < exp
+        assertTrue(base.ln(Math.E + 0.001) > 1); // x > exp
     }
 
     @Test
     public void testMoreThanZero() {
-        assertEquals(log(1.1), base.ln(1.1), EPS);
-        //assertEquals(log(5), base.ln(5.0), EPS); // TODO: wtf
+        assertEquals(log(1.1), base.ln(1.1), EPS_TESTS_BASIC_LOG);
+        assertTrue(log(1.1) > 0);
+        assertEquals(log(5), base.ln(5.0), EPS_TESTS_BASIC_LOG);
+        assertTrue(base.ln(5.0) > 0);
     }
 }
