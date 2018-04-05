@@ -92,10 +92,10 @@ public class Application {
                 // calculate function and write its results to csv file
                 double min = borders[0], max = borders[1], step = borders[2];
                 Double y;
-                for (double x = min; x < max; x += step) {
+                for (double x = min; x <= max; x += step) {
                     y = calculate(fn, x); // TODO: fails here
                     if (y != null) {
-                        //logger.log(fn.toString() + FILE_EXT, x, y);
+                        //logger.log(fn.toString() + FILE_EXT, x, y); // TODO: uncomment
                         System.out.println("x = " + x + "\ty = " + y);
                     }
                 }
