@@ -1,5 +1,6 @@
 package main.trigeometry;
 
+import static java.lang.Math.PI;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
@@ -29,8 +30,9 @@ public class TrigeometricFunction implements ITrigFunction {
     @Override
     public Double tg(Double x) {
         Double res = 1 / pow(base.cos(x), 2) - 1;
-        //if (res.isNaN() || res.isInfinite()) return 0.0;
-        return res < EPS ? Double.NaN : sqrt(res);
+        if (Math.abs(x / PI) % 2 == 1) return Double.NaN;
+        if ((base.sin(x) / base.cos(x)) > 0) return sqrt(res);
+        return -sqrt(res);
     }
 
     /**
@@ -40,6 +42,8 @@ public class TrigeometricFunction implements ITrigFunction {
      */
     @Override
     public Double sec(Double x) {
-        return (base.cos(x) < EPS) ? Double.NaN : (1 / base.cos(x));
+        if (Math.abs(x / PI) % 2 == 1) return Double.NaN;
+        return (Math.abs(base.cos(x)) < EPS) ? Double.NaN : (1 / base.cos(x));
     }
 }
+

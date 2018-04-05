@@ -8,4 +8,9 @@ public class TrigeometricBaseStub implements IBasicTrig {
     public Double cos(Double x) {
         return Math.cos(x);
     }
+
+    @Override
+    public Double sin(Double x) {
+        return Math.sin(x);
+    }
 }

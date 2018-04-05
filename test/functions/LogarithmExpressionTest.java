@@ -30,17 +30,19 @@ public class LogarithmExpressionTest {
         assertTrue(logExpr.calculate(-2.0).isNaN());
     }
 
+    // check [0 +inf]
     @Test
     public void testNearZero() {
+        assertTrue(logExpr.calculate(-2.0).isNaN());
         assertTrue(logExpr.calculate(-0.001).isNaN());
-        //assertFalse(logExpr.calculate(0.0).isNaN()); // TODO: wtf?
         assertFalse(logExpr.calculate(0.001).isNaN());
+        assertFalse(logExpr.calculate(5.0).isNaN());
     }
 
     @Test
     public void testNearOne() {
         assertTrue(logExpr.calculate(0.9) > 0);
-        //assertEquals(logExpr.calculate(1.0), 0, EPS); // TODO: WTF??
+        //assertEquals(0, logExpr.calculate(1.0), EPS); // TODO: WTF??
         assertTrue(logExpr.calculate(1.1) < 0);
     }
 
@@ -52,6 +54,7 @@ public class LogarithmExpressionTest {
     public void testLessThanOne() {
         for (double i = 0.01; i < 0.7; i += 0.1) {
             //assertTrue(logExpr.calculate(i) > 0); // TODO: wtf???
+            System.out.println(logExpr.calculate(i));
         }
     }
 
