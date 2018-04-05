@@ -38,7 +38,7 @@ public class BasicLogarithm implements IBasicLog {
         } else {
             x = (x / (x - 1));
 
-            for ( int i = 1; tmp < eps && i < MAX_ITERATIONS; i ++ ) {
+            for ( int i = 1; tmp > eps && i < MAX_ITERATIONS; i ++ ) {
                 tmp = 1.0 / (i * Math.pow(x, i));
                 sum += tmp;
             }
