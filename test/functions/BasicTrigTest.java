@@ -12,7 +12,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class BasicTrigTest {
-    private static final Double EPS = 0.3;
     private IBasicTrig base;
 
     @Before
