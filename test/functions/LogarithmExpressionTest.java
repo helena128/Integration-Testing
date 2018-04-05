@@ -5,6 +5,7 @@ import main.logarithm.LogExpression;
 import org.junit.Before;
 import org.junit.Test;
 
+import stub.LogExpressionStub;
 import stub.LogarithmFunctionStub;
 
 import static org.junit.Assert.assertEquals;
@@ -13,12 +14,14 @@ import static org.junit.Assert.assertFalse;
 
 public class LogarithmExpressionTest {
     private IExpression logExpr;
+    private IExpression stub;
 
-    private static final Double EPS = 1e-3;
+    private static final Double EPS = 1e-2;
 
     @Before
     public void setUp() {
         logExpr = new LogExpression(new LogarithmFunctionStub());
+        stub = new LogExpressionStub();
     }
 
     /**
@@ -43,6 +46,7 @@ public class LogarithmExpressionTest {
     public void testNearOne() {
         assertTrue(logExpr.calculate(0.9) > 0);
         //assertEquals(0, logExpr.calculate(1.0), EPS); // TODO: WTF??
+        System.out.println(logExpr.calculate(1.0)); // Nan TODO: fix
         assertTrue(logExpr.calculate(1.1) < 0);
     }
 
@@ -53,8 +57,8 @@ public class LogarithmExpressionTest {
     @Test
     public void testLessThanOne() {
         for (double i = 0.01; i < 0.7; i += 0.1) {
-            //assertTrue(logExpr.calculate(i) > 0); // TODO: wtf???
-            System.out.println(logExpr.calculate(i));
+            assertTrue(logExpr.calculate(i) > 0);
+            //System.out.println(logExpr.calculate(i));
         }
     }
 
@@ -65,6 +69,13 @@ public class LogarithmExpressionTest {
     public void testMoreThanOne() {
         for (int i = 2; i < 10; i++) {
             assertTrue(logExpr.calculate(1.0 * i) < 0);
+        }
+    }
+
+    @Test
+    public void testWithStub() {
+        for (double x = -0.1; x < 2; x += 0.1) {
+            assertEquals(stub.calculate(x), logExpr.calculate(x), EPS);
         }
     }
 }
