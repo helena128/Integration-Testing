@@ -33,6 +33,7 @@ public class BasicLogarithmTest {
         assertEquals(log(0.6), base.ln(0.6), EPS_TESTS_BASIC_LOG * 2);
     }
 
+    // changes from fn < 0 to fn > 0
     @Test
     public void testXIsOne() {
         assertTrue(base.ln(1.001) > 0);
@@ -41,7 +42,7 @@ public class BasicLogarithmTest {
     }
 
 
-    //@Ignore // TODO: useless test ???
+    //@Ignore
     @Test
     public void testAtExp() {
         assertEquals(log(Math.E), base.ln(Math.E), EPS_TESTS_BASIC_LOG); // x = exp
@@ -49,6 +50,7 @@ public class BasicLogarithmTest {
         assertTrue(base.ln(Math.E + 0.001) > 1); // x > exp
     }
 
+    // if (x > 1) fn (x) > 0
     @Test
     public void testMoreThanZero() {
         assertEquals(log(1.1), base.ln(1.1), EPS_TESTS_BASIC_LOG);
