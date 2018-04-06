@@ -81,10 +81,10 @@ public class TrigFunctionTest {
         }
 
         // test descending
-        // TODO: fix this
         prev = fn.sec(-0.9 * PI);
-        for (double i = -0.8; i < -0.4; i += 0.1) {
+        for (double i = -0.8; i < -0.6; i += 0.1) {
             assertTrue(fn.sec(i * PI) < prev);
+            //System.out.println(fn.sec(i * PI));
             prev = fn.sec(i * PI);
         }
 

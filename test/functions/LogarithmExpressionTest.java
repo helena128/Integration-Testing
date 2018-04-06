@@ -45,8 +45,7 @@ public class LogarithmExpressionTest {
     @Test
     public void testNearOne() {
         assertTrue(logExpr.calculate(0.9) > 0);
-        //assertEquals(0, logExpr.calculate(1.0), EPS); // TODO: WTF??
-        System.out.println(logExpr.calculate(1.0)); // Nan TODO: fix
+        assertEquals(0, logExpr.calculate(1.0), EPS);
         assertTrue(logExpr.calculate(1.1) < 0);
     }
 

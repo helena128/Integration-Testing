@@ -7,7 +7,7 @@ import static java.lang.Math.pow;
 public class TrigeometricExpressionStub implements ITrigExpression {
     @Override
     public Double calculate(Double x) {
-        return Math.pow(Math.pow(sec(x) * cos(x) - tg(x), 3), 3) / tg(x);
+        return (Math.pow(Math.pow(((sec(x) * cos(x)) - tg(x)), 3), 3) / tg(x));
     }
 
     private static Double sec(Double x) {

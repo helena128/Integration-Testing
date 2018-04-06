@@ -13,18 +13,8 @@ public class TrigeometricExpression implements ITrigExpression {
 
     @Override
     public Double calculate(Double x) {
-        return Math.pow(Math.pow(fn.sec(x) * fn.cos(x) - fn.tg(x), 3), 3) / fn.tg(x);
+        if (fn.tg(x) == 0) return Double.NaN;
+        return  (Math.pow(Math.pow(((fn.sec(x) * fn.cos(x)) - fn.tg(x)), 3), 3) / fn.tg(x));
+        //return Math.pow(Math.pow(fn.sec(x) * fn.cos(x) - fn.tg(x), 3), 3) / fn.tg(x);
     }
-
-    /*
-    (
-	(
-		(
-			(
-				(sec(x) * cos(x)) - tan(x)
-			) ^ 3
-		) ^ 3
-	)
-/ tan(x))
-     */
 }

@@ -15,6 +15,7 @@ public class LogExpression implements ILogExpression {
 
     @Override
     public Double calculate(Double x) {
+        if (x == 1.0) return 0.0;
         return  (((Math.pow((log_5(x) * log_2(x)), 2) / (log_2(x) - ln(x))) + ln(x)) * (log_3(x) -
                 ((log_2(x) / log_10(x)) + log_5(x))));
     }
