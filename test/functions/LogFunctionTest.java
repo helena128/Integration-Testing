@@ -30,7 +30,7 @@ public class LogFunctionTest {
     @Test
     public void testFunctionsBelowZero() {
         for (double i = -0.1; i > -3.0; i -= 0.1) {
-            assertTrue(fn.lb(i).isNaN());
+            assertTrue(fn.ln(i).isNaN());
             assertTrue(fn.lb(i).isNaN());
             assertTrue(fn.log_3(i).isNaN());
             assertTrue(fn.log_5(i).isNaN());

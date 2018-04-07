@@ -30,7 +30,7 @@ public class BasicLogarithmTest {
     public void testNearZero() {
         assertEquals(log(-0.1), base.ln(-0.1), EPS_TESTS_BASIC_LOG);
         assertEquals(log(0), base.ln(0.0), EPS_TESTS_BASIC_LOG);
-        assertEquals(log(0.6), base.ln(0.6), EPS_TESTS_BASIC_LOG * 2);
+        assertEquals(log(0.1), base.ln(0.1), EPS_TESTS_BASIC_LOG);
     }
 
     // changes from fn < 0 to fn > 0

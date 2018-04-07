@@ -1,6 +1,8 @@
 package main.trigeometry;
 
 import java.math.BigDecimal;
+
+import static java.lang.Math.abs;
 import static java.lang.Math.pow;
 import static java.lang.Math.PI;
 
@@ -22,7 +24,9 @@ public class TrigeometricBase implements IBasicTrig {
             if (x >= 0 && x < 2 * PI) break;
         }
 
-        for (int i = 0; Math.abs(tmp) > EPS && i < 15; i++) {
+        double prev = 11.0;
+        for (int i = 0; abs(abs(tmp) - abs(prev)) > EPS; i++) {
+            prev = tmp;
             tmp = pow(-1, i) * pow(x, 2 * i) / factorial(2 * i);
             //System.out.println("fact= " + factorial(2 * i) + " 2i = "+2*i);
             sum += tmp;

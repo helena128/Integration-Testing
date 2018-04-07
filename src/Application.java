@@ -95,7 +95,7 @@ public class Application {
                 for (double x = min; x <= max; x += step) {
                     y = calculate(fn, x);
                     if (y != null) {
-                        //logger.log(fn.toString() + FILE_EXT, x, y); // TODO: uncomment
+                        logger.log(fn.toString() + FILE_EXT, x, y); // TODO: uncomment
                         System.out.println("x = " + x + "\ty = " + y);
                     }
                 }

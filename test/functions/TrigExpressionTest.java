@@ -63,10 +63,8 @@ public class TrigExpressionTest {
     public void testDecending() {
         // [-Pi/8..0]
         double prev = ex.calculate((- 1 / 8 + 0.01) * PI);
-        for (double i = -1 / 8 + 0.002; i < -0.001; i += 0.001) {
-            assertTrue(ex.calculate(i * PI) < prev);
-            prev = ex.calculate(i * PI);
-        }
+        assertTrue(ex.calculate(- PI / 8 + 0.02) < prev);
+
 
         // [0.. 0,5 PI]
         prev = ex.calculate(0.01 * PI);
@@ -87,11 +85,11 @@ public class TrigExpressionTest {
         assertTrue(ex.calculate(-PI / 4) < ex.calculate(-PI / 4 + 0.001));
     }
 
-    @Ignore
+    /*@Ignore
     @Test
     public void testComparingWithStub() {
         for (double x = -3.0; x < -1.0; x += 0.1) {
             assertEquals(stub.calculate(x), ex.calculate(x), Constants.EPS_TESTS_BASIC_LOG);
         }
-    }
+    }*/
 }
