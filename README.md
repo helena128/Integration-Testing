@@ -1,1 +1,1 @@
-# TestingLab2
+# Integration Testing
